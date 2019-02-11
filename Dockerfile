@@ -10,14 +10,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
                                 python3-setuptools \
                                 python3-wheel \
                                 build-essential \
-                && rm -rf /var/lib/apt/lists/*
-
-RUN pip3 install cryptg
-RUN pip3 install telethon[cryptg]
-
-RUN apt-get remove --purge -y build-essential \
+                && rm -rf /var/lib/apt/lists/* \
+                && pip3 install cryptg \
+                && pip3 install telethon[cryptg] \
+                && apt-get remove --purge -y build-essential \
                                 python3-dev \
-                                $(apt-mark showauto) \
                 && rm -rf /var/lib/apt/lists/*
 
 RUN [ "cross-build-end" ]
