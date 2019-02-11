@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
                 && rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install cryptg
+RUN pip3 install telethon[cryptg]
 
 RUN apt-get remove --purge -y build-essential \
                                 python3-dev
